@@ -24,9 +24,10 @@ MEDIA_DIR=os.path.join(BASE_DIR,"media")
 SECRET_KEY = '2mu@9ao-is1=s5&s*@#c9t#!165*-_*b*o^*d4ieuqksnwr87-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['drishtant.pythonanywhere.com']
+# ALLOWED_HOSTS = ['drishtant.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
