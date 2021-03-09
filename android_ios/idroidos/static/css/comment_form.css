@@ -1,0 +1,12 @@
+.form{
+  background-image: linear-gradient(lightgreen,skyblue);
+  border-radius: 8px;
+  border:2px solid blue;
+  padding:20px;
+  margin-top: 20px;
+}
+.postcontent{
+  border-radius: 5px;
+  border:2px solid black;
+  padding:4px;
+}

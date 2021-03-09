@@ -1,0 +1,18 @@
+{% extends 'idroidos/base.html' %}
+{% load static %}
+{% block css_style %}
+<link rel="stylesheet" href="{% static 'css/comment_form.css'%}">
+{% endblock %}
+{% block content %}
+<div class="container" style="max-width:50%;">
+  <h1 align="center">Add Comments to the Post</h1>
+<form class="form"  method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" class="btn btn-primary"value="Comment">
+</form>
+</div>
+
+<script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}

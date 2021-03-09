@@ -1,0 +1,103 @@
+{% extends 'idroidos/base.html'%}
+{% load static%}
+{% block title %}
+<title>idroidos- tech made simple</title>
+{% endblock %}
+{% block css_style%}
+<!--<meta name="viewport" content="width=device-width initial-scale=1"/>-->
+<link rel="stylesheet" href="{% static 'css/homepage.css'%}">
+<style media="screen">
+.top{
+  height:100%;
+  background-image:url({% static 'images/homebackground..jpeg'%});
+  background-size:100%;
+  min-height: 720px;
+  background-repeat: no-repeat;
+  opacity: 0.75;
+  scroll-snap-align: start;
+  margin-bottom: 2rem
+}
+.btn{
+  opacity: 0.8;
+
+
+}
+.img{
+  margin-left: 45%
+}
+.login{
+  opacity: 0.6;
+  float:right;
+}
+.credits{
+  float:right;
+  font-size: 0.8rem;
+  color: black;
+}
+.headline{
+  background-color: white;
+  font-size: 1rem;
+  font-style: oblique;
+  padding:1rem;
+  padding-left: 2rem;
+  border-radius: 1rem;
+  border:0.2rem solid black;
+  margin:0.3rem;
+  display: inline-block;
+
+}
+.post{
+margin-top:2rem;
+padding: 3rem;
+background-image: linear-gradient(#f6fff6,#e0e2e2);
+border-radius: 1rem;
+max-height: 800px;
+overflow-y: scroll;
+scroll-snap-align : start;
+}
+::-webkit-scrollbar{
+  width:5px;
+  color:red;
+
+}
+#divider{
+  border-color:grey;
+}
+</style>
+{% endblock %}
+{% block bodyblock %}
+<div class="top">
+  <br><br>
+<br>
+<div class="text-center">
+<img src="{% static 'images/main_logo.jpeg'%}" style="height:150px;width:150px; opacity:0.7;">
+</div>
+{% if not user.is_authenticated %}
+<a href="{%url 'user_login'%}" class="btn btn-lg btn-primary login">LogIn</a>
+{% endif %}
+<br><br><br>
+<div class="text-center">
+<a href="{%url 'smartphone_list'%}" class="btn btn-primary btn-lg" >SmartPhones</a>
+<a href="{%url 'news_list'%}" class="btn btn-primary btn-lg btn-warning">News</a>
+<a href="{%url 'comparison_list'%}" class="btn btn-primary btn-success btn-lg">Comparisons</a>
+</div>
+</div>
+<div class="dropdown-divider" id="divider"></div>
+
+<h2 align="center" style="color:Orange">Latest Posts</h2>
+<div class="dropdown-divider" id="divider"></div>
+<div class="post">
+{% for link in quicklinks %}
+<div class="headline" data-aos="fade-down" data-aos-offset="3">
+  <h3 style="color:#1f354c"><span style="color:#1f354c">{{link.post|safe|linebreaksbr}}</span></h3>
+</div>
+
+{% endfor %}
+</div>
+<div class="dropdown-divider" id="divider"></div>
+<br><br><br><br><br><br>
+<div class="img">
+  <img src="{% static 'images/main_logo.jpeg'%}" alt="" style="width:150px; height: 150px; ">
+</div>
+
+{% endblock %}

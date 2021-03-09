@@ -1,0 +1,24 @@
+{% extends 'idroidos/base.html' %}
+{% load static %}
+{% block css_style %}
+<link rel="stylesheet" href="{% static 'css/list.css'%}">
+<meta name="viewport" content="width=device-width initial-scale=1"/>
+{% endblock %}
+{% block content %}
+<div class="latest-comparisons" data-aos="fade-down">
+  {% for comparison in comparisons %}
+  <div data-aos="fade-left">
+  <h3>{{comparison.smartphone_one|safe}} vs {{comparison.smartphone_two|safe}}: {{comparisoninfo.title|safe}}</h3>
+  <div class="brief">
+    <p>{{comparison.overview|safe|linebreaksbr}}</p>
+    <a href="{% url 'comparison_details' pk=comparison.pk %}" class="btn btn-danger full-article" type="button" name="">
+       <span class="link-dark">Read Full Article</span></a>
+  </div>
+</div>
+  <p><a href="{% url 'smartphone_list'%}" class="link">Explore latest SmartPhones >>></a> or
+  <a href="{% url 'news_list' %}" class="link">Explore latest trends in Tech >>></a></p>
+  {% endfor %}
+</div>
+
+
+{% endblock %}

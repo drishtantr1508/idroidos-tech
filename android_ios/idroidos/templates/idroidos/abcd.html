@@ -1,0 +1,24 @@
+{% extends 'idroidos/base.html'%}
+{% load static%}
+{% block css_style%}
+<style media="screen">
+
+</style>
+{% endblock %}
+{% block content %}
+<h1>Model_check</h1>
+{% for smartphone in smartphones %}
+<h1>{{smartphone.smartphone}}</h1>
+{{smartphone.title}}
+<br>
+{{smartphone.intro}}
+<br>
+{{smartphone.display}}
+<br>
+<h2>Comments</h2>
+{% for item in smartphone.comments.all%}
+<p>{{item.text}}</p>
+<p>Posted By: {{item.author}}</p>
+{%endfor%}
+{% endfor %}
+{% endblock %}

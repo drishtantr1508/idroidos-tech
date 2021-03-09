@@ -1,0 +1,32 @@
+{% extends 'idroidos/base.html' %}
+{% load static %}
+{% block css_style %}
+<link rel="stylesheet" href="{% static 'css/post_form.css'%}">
+<style media="screen">
+.form{
+  background-color:#dddfe0;
+  padding: 20px;
+  border:3px solid black;
+  border-radius: 2%;
+}
+.postcontent{
+  background-color: white;
+  padding:5px;
+  border: 2px solid #43475a;
+  border-radius: 7px;
+}
+</style>
+{% endblock %}
+{% block content %}
+<h1>New Post</h1>
+<form class="form" enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" name="" value="Post" class="btn btn-primary btn-lg submit">
+</form>
+<br><br><br>
+<div class="img">
+  <img src="{% static 'images/main_logo.jpeg'%}" alt="" style="width:150px; height: 150px; margin-left:40%;">
+</div>
+<script>var editor = new MediumEditor('.editable');</script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'idroidos/base.html' %}
+{% load static %}
+{% block css_style%}
+<link rel="stylesheet" href="{% static 'css/post_form.css'%}">
+{% endblock %}
+{% block content %}
+<h1 align="center">Add Headline with link to post</h1>
+<form class="form" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit"  value="Add Headline" class="btn btn-primary btn-sm">
+</form>
+<script>var editor = new MediumEditor('.editable');</script>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'idroidos/base.html'%}
+{% load static %}
+{% block css_style %}
+<meta name="viewport" content="width=device-width initial-scale=1"/>
+<link rel="stylesheet" href="{% static 'css/login_form.css'%}">
+<!--<style>-->
+<!--body{-->
+<!--  font: arial;-->
+<!--}-->
+<!--/* #register-div {-->
+<!--background-color: #81aba9;-->
+
+<!--background-repeat:repeat;-->
+
+<!--} */-->
+<!--.form-control{-->
+<!--  width: 95%;-->
+<!--}-->
+<!--/*.img{*/-->
+<!--/*  margin-left: 45%;*/-->
+<!--/*}*/-->
+<!--</style>-->
+{% endblock %}
+{% block content %}
+<br>
+<div style="max-width:95%;">
+
+  {% if registered %}
+  <h1 style="color:red;">Thank You for Registering</h1>
+  {% else %}
+  <h1>WELCOME TO REGISTRATION PAGE</h1>
+  <form class="form" method="post">
+    {% csrf_token %}
+    {{user_form.as_p}}
+    {{profile_form.as_p}}
+    <input class="btn btn-primary btn-lg" type="submit" name="" value="Register">
+{% endif %}
+  </form>
+
+  <br>
+  <a href="{% url 'user_login'%}">Already Registered? Login Here>>></a>
+
+
+</div><br><br>
+<!--<div class="img">-->
+<!--  <img src="{% static 'images/main_logo.jpeg'%}" alt="" style="width:100px; height: 100px; align:auto;">-->
+<!--</div>-->
+{% endblock %}

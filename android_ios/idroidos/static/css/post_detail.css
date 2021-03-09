@@ -1,0 +1,53 @@
+*{
+    margin:0;
+}
+
+#divider{
+  border-color:grey;
+}
+
+.content{
+  background-color:#efefef;
+  color:black;
+  padding:15px;
+  border-radius: 5px;
+  margin-top: 2rem;
+  width:100%;
+}
+
+.link-dark{
+  background: -webkit-linear-gradient(blue,green,blue);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.small{
+  font-size: 0.5em;
+}
+
+.comments{
+  background-image: linear-gradient(white,#ded7d7);
+  padding:15px;
+  max-height: 400px;
+  /*max-width: 80%;*/
+  overflow-y: scroll;
+  border-radius: 8px;
+  color: #080e5a;
+}
+
+
+::-webkit-scrollbar{
+  width:5px;
+  color:red;
+
+}
+.media-pic {
+  width:100%;
+  max-width:30rem;
+
+  margin-left: 5%;
+  margin-right:5%;
+  margin-top:3rem;
+  margin-bottom:3rem;
+}
+
