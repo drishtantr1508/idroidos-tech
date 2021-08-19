@@ -1,45 +1,62 @@
 {% extends 'idroidos/base.html' %}
 <!-- {% load static %} -->
 {% block css_style %}
-<meta name="viewport" content="width=device-width initial-scale=1"/>
-<link rel="stylesheet" href="{% static 'css/post_detail.css'%}">
-{% endblock %}
-
-{% block title %}
-{% if smartphonesinfo%}
-<title>{{smartphonesinfo.smartphone|safe|linebreaksbr}} : {{smartphonesinfo.title|safe|linebreaksbr}}</title>
+<meta name="viewport" content="width=device-width initial-scale=1" />
+<link rel="stylesheet" href="{% static 'css/post_detail.css'%}" />
+{% endblock %} {% block title %} {% if smartphonesinfo%}
+<title>
+  {{smartphonesinfo.smartphone|safe|linebreaksbr}} :
+  {{smartphonesinfo.title|safe|linebreaksbr}}
+</title>
 {% elif comparisoninfo %}
-<title>{{comparisoninfo.smartphone_one|safe}} vs {{comparisoninfo.smartphone_two|safe}}</title>
+<title>
+  {{comparisoninfo.smartphone_one|safe}} vs
+  {{comparisoninfo.smartphone_two|safe}}
+</title>
 {% else %}
 <title>{{newsarticle.heading|safe|linebreaksbr}}</title>
-{% endif %}
-{% endblock %}
-
-{% block content %}
+{% endif %} {% endblock %} {% block content %}
 
 <!-- #################################
 ######### SMARTPHONES SECTION ########
 ################################## -->
 
-
 {% if smartphonesinfo%}
-<div data-aos='fade-down'>
-<h1>{{smartphonesinfo.smartphone|safe|linebreaksbr}} : {{smartphonesinfo.title|safe|linebreaksbr}}</h1>
-<div class="dropdown-divider" id="divider"></div>
- <a href="#" class="btn btn-lg"> <span class="fa fa-share"></span> </a>
+<div data-aos="fade-down">
+  <h1>
+    {{smartphonesinfo.smartphone|safe|linebreaksbr}} :
+    {{smartphonesinfo.title|safe|linebreaksbr}}
+  </h1>
+  <div class="dropdown-divider" id="divider"></div>
+  <a href="#" class="btn btn-lg"> <span class="fa fa-share"></span> </a>
   {% if user.is_superuser %}
-  <a href="{% url 'edit_smartphone' pk=smartphonesinfo.pk %}" class="btn btn-warning btn-lg"> <span class="fa fa-pencil"></span> </a>
-  <a href="{% url 'remove_smartphone' pk=smartphonesinfo.pk %}" class="btn btn-danger btn-lg"><span class="fa fa-remove"></span></a>
+  <a
+    href="{% url 'edit_smartphone' pk=smartphonesinfo.pk %}"
+    class="btn btn-warning btn-lg"
+  >
+    <span class="fa fa-pencil"></span>
+  </a>
+  <a
+    href="{% url 'remove_smartphone' pk=smartphonesinfo.pk %}"
+    class="btn btn-danger btn-lg"
+    ><span class="fa fa-remove"></span
+  ></a>
   {% endif %}
-<div class="dropdown-divider" id="divider"></div>
-{% if smartphonesinfo.published_date %}
-<h4>By : Drishtant Rai</h4>
-<p>posted on: {{smartphonesinfo.published_date}}</p>
-{% else %}
-<a href="{% url 'smartphone_publish' pk=smartphonesinfo.pk %}" class="btn btn-primary">Publish</a>
-{% endif %}
-<div class="dropdown-divider" id="divider"></div>
-<a href="{% url 'smartphone_list' %}" class="link-dark">Explore other smartphones too ></a>
+  <div class="dropdown-divider" id="divider"></div>
+  {% if smartphonesinfo.published_date %}
+  <h4>By : Drishtant Rai</h4>
+  <p>posted on: {{smartphonesinfo.published_date}}</p>
+  {% else %}
+  <a
+    href="{% url 'smartphone_publish' pk=smartphonesinfo.pk %}"
+    class="btn btn-primary"
+    >Publish</a
+  >
+  {% endif %}
+  <div class="dropdown-divider" id="divider"></div>
+  <a href="{% url 'smartphone_list' %}" class="link-dark"
+    >Explore other smartphones too ></a
+  >
 </div>
 <div class="content" data-aos="fade-left">
   <h3>Introduction:</h3>
@@ -50,11 +67,18 @@
   <h3>Overview</h3>
   <h5>{{smartphonesinfo.overview|safe|linebreaksbr}}</h5>
 </div>
-<a href="{% url 'news_list'%}" class="link-dark">Explore Latest Trends in Tech ></a>
-<div  data-aos="fade-left">
+<a href="{% url 'news_list'%}" class="link-dark"
+  >Explore Latest Trends in Tech ></a
+>
+<div data-aos="fade-left">
   {% if smartphonesinfo.design_pic %}
-<img class="media-pic"src="{{smartphonesinfo.design_pic.url}}" alt="hello" style="margin-left:auto;">
-{% endif %}
+  <img
+    class="media-pic"
+    src="{{smartphonesinfo.design_pic.url}}"
+    alt="hello"
+    style="margin-left: auto"
+  />
+  {% endif %}
 </div>
 <div class="content" data-aos="fade-right">
   <h3>Design</h3>
@@ -65,16 +89,23 @@
   <h3>Display</h3>
   <h5>{{smartphonesinfo.display|safe|linebreaksbr}}</h5>
 </div>
-<div  data-aos="fade-right">
+<div data-aos="fade-right">
   {% if smartphonesinfo.display_pic %}
-<img class="media-pic"  src="{{smartphonesinfo.display_pic.url}}" alt="hello" style="margin-left:auto;">
-{% endif %}
+  <img
+    class="media-pic"
+    src="{{smartphonesinfo.display_pic.url}}"
+    alt="hello"
+    style="margin-left: auto"
+  />
+  {% endif %}
 </div>
-<div class="content"data-aos="fade-left">
+<div class="content" data-aos="fade-left">
   <h3>Camera</h3>
   <h5>{{smartphonesinfo.camera|safe|linebreaksbr}}</h5>
 </div>
-<a href="{% url 'comparison_list'%}" class="link-dark">Compare with latest smartphones ></a>
+<a href="{% url 'comparison_list'%}" class="link-dark"
+  >Compare with latest smartphones ></a
+>
 <div class="content" data-aos="fade-right">
   <h3>Performance</h3>
   <h5>{{smartphonesinfo.performance|safe|linebreaksbr}}</h5>
@@ -94,31 +125,43 @@
   <h3>Extras</h3>
   <h5>{{smartphonesinfo.extras|safe|linebreaksbr}}</h5>
 </div>
-<div  data-aos="fade-right">
+<div data-aos="fade-right">
   {% if smartphonesinfo.extra_pic %}
-<img class="media-pic"src="{{smartphonesinfo.extra_pic.url}}" alt="Image Not Avaiable):)" style="margin-left:auto;">
-{% endif %}
+  <img
+    class="media-pic"
+    src="{{smartphonesinfo.extra_pic.url}}"
+    alt="Image Not Avaiable):)"
+    style="margin-left: auto"
+  />
+  {% endif %}
 </div>
 <div class="content" data-aos="fade-right">
   <h3>Conclusion</h3>
   <h5>{{smartphonesinfo.conclusion|safe|linebreaksbr}}</h5>
 </div>
 
-<br>
+<br />
 
 <!-- Comment Section  -->
 <div class="comment-section" data-aos="fade-down">
   <div class="dropdown-divider" id="divider"></div>
   <h2 align="center">Comments</h2>
-{% if user.is_authenticated %}
-  <a href="{% url 'smartphone_comment' pk=smartphonesinfo.pk%}" class="btn btn-primary"> <span class="fa fa-plus"></span> </a>
-{% endif %}
+  {% if user.is_authenticated %}
+  <a
+    href="{% url 'smartphone_comment' pk=smartphonesinfo.pk%}"
+    class="btn btn-primary"
+  >
+    <span class="fa fa-plus"></span>
+  </a>
+  {% endif %}
   <div class="dropdown-divider" id="divider"></div>
-  <div class="comments" >
+  <div class="comments">
     {% for comment in smartphonesinfo.smart_comments.all %}
     <div data-aos="fade-down" data-aos-offset="10">
       <h6>{{comment.text|safe|linebreaksbr}}</h6>
-      <p class="small">{{comment.author|safe|linebreaksbr}} on {{comment.create_date}} GMT</p>
+      <p class="small">
+        {{comment.author|safe|linebreaksbr}} on {{comment.create_date}} GMT
+      </p>
     </div>
     <div class="dropdown-divider" id="divider"></div>
     {% endfor %}
@@ -130,64 +173,101 @@
 <!-- COMPARISON SECTION -->
 
 {% if comparisoninfo%}
-<div data-aos='fade-down'>
-<h3>{{comparisoninfo.smartphone_one|safe}} vs {{comparisoninfo.smartphone_two|safe}}: {{comparisoninfo.title|safe}}</h3>
-<div class="dropdown-divider" id="divider"></div>
- <a href="#" class="btn btn-lg"> <span class="fa fa-share"></span> </a>
+<div data-aos="fade-down">
+  <h3>
+    {{comparisoninfo.smartphone_one|safe}} vs
+    {{comparisoninfo.smartphone_two|safe}}: {{comparisoninfo.title|safe}}
+  </h3>
+  <div class="dropdown-divider" id="divider"></div>
+  <a href="#" class="btn btn-lg"> <span class="fa fa-share"></span> </a>
   {% if user.is_superuser %}
-  <a href="{% url 'edit_comparison' pk=comparisoninfo.pk %}" class="btn btn-warning"> <span class="fa fa-pencil"></span> </a>
-  <a href="{% url 'remove_comparison' pk=comparisoninfo.pk %}" class="btn btn-danger"><span class="fa fa-remove"></span></a>
+  <a
+    href="{% url 'edit_comparison' pk=comparisoninfo.pk %}"
+    class="btn btn-warning"
+  >
+    <span class="fa fa-pencil"></span>
+  </a>
+  <a
+    href="{% url 'remove_comparison' pk=comparisoninfo.pk %}"
+    class="btn btn-danger"
+    ><span class="fa fa-remove"></span
+  ></a>
   {% endif %}
-<div class="dropdown-divider" id="divider"></div>
-<h4>By : Drishtant Rai</h4>
-<p>posted on: {{comparisoninfo.published_date}}</p>
-{% if not comparisoninfo.published_date %}
-<a href="{% url 'comparison_publish' pk=comparisoninfo.pk %}" class="btn btn-primary">Publish</a>
-{% endif %}
-<div class="dropdown-divider" id="divider"></div>
-<a href="{% url 'smartphone_list' %}" class="link-dark">Explore other smartphones too ></a>
+  <div class="dropdown-divider" id="divider"></div>
+  <h4>By : Drishtant Rai</h4>
+  <p>posted on: {{comparisoninfo.published_date}}</p>
+  {% if not comparisoninfo.published_date %}
+  <a
+    href="{% url 'comparison_publish' pk=comparisoninfo.pk %}"
+    class="btn btn-primary"
+    >Publish</a
+  >
+  {% endif %}
+  <div class="dropdown-divider" id="divider"></div>
+  <a href="{% url 'smartphone_list' %}" class="link-dark"
+    >Explore other smartphones too ></a
+  >
 </div>
 <div class="content" data-aos="fade-right">
   <h4>Introduction:</h4>
   <p>{{comparisoninfo.intro|safe|linebreaksbr}}</p>
 </div>
 
-<div class="content"data-aos="fade-left">
+<div class="content" data-aos="fade-left">
   <h5>Overview</h5>
   <p>{{comparisoninfo.overview|safe|linebreaksbr}}</p>
 </div>
-<a href="{% url 'news_list'%}" class="link-dark">Explore Latest Trends in Tech ></a>
+<a href="{% url 'news_list'%}" class="link-dark"
+  >Explore Latest Trends in Tech ></a
+>
 <div class="content" data-aos="fade-right">
   <h5>Design</h5>
   <p>{{comparisoninfo.design|safe|linebreaksbr}}</p>
 </div>
-<div  data-aos="fade-right">
+<div data-aos="fade-right">
   {% if comparisoninfo.extra_pic %}
-<img class="media-pic" src="{{comparisoninfo.extra_pic.url}}" alt="Image Not Avaiable):)" style="margin-left:auto;">
-{% endif %}
+  <img
+    class="media-pic"
+    src="{{comparisoninfo.extra_pic.url}}"
+    alt="Image Not Avaiable):)"
+    style="margin-left: auto"
+  />
+  {% endif %}
 </div>
 <div class="content" data-aos="fade-left">
   <h5>Display</h5>
   <p>{{comparisoninfo.display|safe|linebreaksbr}}</p>
 </div>
-<div  data-aos="fade-right">
+<div data-aos="fade-right">
   {% if comparisoninfo.phonepic1 %}
-<img class="media-pic" src="{{comparisoninfo.phonepic1.url}}" alt="Image Not Avaiable):)" style="margin-left:auto;">
-{% endif %}
+  <img
+    class="media-pic"
+    src="{{comparisoninfo.phonepic1.url}}"
+    alt="Image Not Avaiable):)"
+    style="margin-left: auto"
+  />
+  {% endif %}
 </div>
 <div class="content" data-aos="fade-right">
   <h5>Camera</h5>
   <p>{{comparisoninfo.camera|safe|linebreaksbr}}</p>
 </div>
-<a href="{% url 'comparison_list'%}" class="link-dark">Compare with latest smartphones ></a>
+<a href="{% url 'comparison_list'%}" class="link-dark"
+  >Compare with latest smartphones ></a
+>
 <div class="content" data-aos="fade-left">
   <h5>Performance</h5>
   <p>{{comparisoninfo.performance|safe|linebreaksbr}}</p>
 </div>
-<div  data-aos="fade-right">
+<div data-aos="fade-right">
   {% if comparisoninfo.phonepic2 %}
-<img class="media-pic"src="{{comparisoninfo.phonepic2.url}}" alt="Image Not Avaiable):)" style="margin-left:auto;">
-{% endif %}
+  <img
+    class="media-pic"
+    src="{{comparisoninfo.phonepic2.url}}"
+    alt="Image Not Avaiable):)"
+    style="margin-left: auto"
+  />
+  {% endif %}
 </div>
 <div class="content" data-aos="fade-right">
   <h5>Battery</h5>
@@ -208,21 +288,28 @@
   <h5>Conclusion</h5>
   <p>{{comparisoninfo.conclusion|safe|linebreaksbr}}</p>
 </div>
-<br>
+<br />
 
 <!-- Comment Section  -->
 <div class="comment-section" data-aos="fade-down">
   <div class="dropdown-divider" id="divider"></div>
   <h3 align="center">Comments</h3>
-{% if user.is_authenticated %}
-  <a href="{% url 'comparison_comment' pk=comparisoninfo.pk%}" class="btn btn-primary"> <span class="fa fa-plus"></span> </a>
-{% endif %}
+  {% if user.is_authenticated %}
+  <a
+    href="{% url 'comparison_comment' pk=comparisoninfo.pk%}"
+    class="btn btn-primary"
+  >
+    <span class="fa fa-plus"></span>
+  </a>
+  {% endif %}
   <div class="dropdown-divider" id="divider"></div>
-  <div class="comments" >
+  <div class="comments">
     {% for comment in comparisoninfo.comparison_comments.all %}
-    <div data-aos="fade-down" data-aos-offset='5'>
+    <div data-aos="fade-down" data-aos-offset="5">
       <p>{{comment.text|safe|linebreaksbr}}</p>
-      <p class="small">{{comment.author|safe|linebreaksbr}} on {{comment.create_date}} GMT</p>
+      <p class="small">
+        {{comment.author|safe|linebreaksbr}} on {{comment.create_date}} GMT
+      </p>
     </div>
     <div class="dropdown-divider" id="divider"></div>
     {% endfor %}
@@ -231,51 +318,60 @@
 
 {% endif %}
 
-
-
-
-
 <!-- ###################################
 ######## NEWS ARTICLE SECTION #########
 ################################### -->
 
-
 {% if newsarticle %}
 <div data-aos="fade-down">
-<h1>{{newsarticle.heading|safe|linebreaksbr}}</h1>
+  <h1>{{newsarticle.heading|safe|linebreaksbr}}</h1>
 
-<div class="dropdown-divider" id="divider"></div>
- <a href="#" class="btn btn-lg"> <span class="fa fa-share"></span> </a>
+  <div class="dropdown-divider" id="divider"></div>
+  <a href="#" class="btn btn-lg"> <span class="fa fa-share"></span> </a>
   {% if user.is_superuser %}
-  <a href="{% url 'edit_news' pk=newsarticle.pk %}" class="btn btn-warning"> <span class="fa fa-pencil"></span> </a>
-  <a href="{% url 'remove_news' pk=newsarticle.pk %}" class="btn btn-danger"><span class="fa fa-remove"></span></a>
+  <a href="{% url 'edit_news' pk=newsarticle.pk %}" class="btn btn-warning">
+    <span class="fa fa-pencil"></span>
+  </a>
+  <a href="{% url 'remove_news' pk=newsarticle.pk %}" class="btn btn-danger"
+    ><span class="fa fa-remove"></span
+  ></a>
   {% endif %}
-<div class="dropdown-divider" id="divider"></div>
-{% if newsarticle.published_date %}
-<h4>By : Drishtant Rai</h4>
-<p>posted on: {{newsarticle.published_date}}</p>
-{% else %}
-<a href="{% url 'news_publish' pk=newsarticle.pk %}" class="btn btn-primary">Publish</a>
-{% endif %}
-<div class="dropdown-divider" id="divider"></div>
+  <div class="dropdown-divider" id="divider"></div>
+  {% if newsarticle.published_date %}
+  <h4>By : Drishtant Rai</h4>
+  <p>posted on: {{newsarticle.published_date}}</p>
+  {% else %}
+  <a href="{% url 'news_publish' pk=newsarticle.pk %}" class="btn btn-primary"
+    >Publish</a
+  >
+  {% endif %}
+  <div class="dropdown-divider" id="divider"></div>
 </div>
 <div class="content" data-aos="fade-left">
   <p>{{newsarticle.para1|safe|linebreaksbr}}</p>
 </div>
-<div  data-aos="fade-right">
+<div data-aos="fade-right">
   {% if newsarticle.article_pic1 %}
-<img class="media-pic"src="{{newsarticle.article_pic1.url}}" alt="Image Not Avaiable):)" style="margin-left:auto;">
-{% endif %}
+  <img
+    class="media-pic"
+    src="{{newsarticle.article_pic1.url}}"
+    alt="Image Not Avaiable):)"
+  />
+  {% endif %}
 </div>
 <div class="content" data-aos="fade-down">
   <p>{{newsarticle.para2|safe|linebreaksbr}}</p>
 </div>
-<div  data-aos="fade-right">
+<div data-aos="fade-right">
   {% if newsarticle.article_pic2 %}
-<img class="media-pic"src="{{newsarticle.article_pic2.url}}" alt="Image Not Avaiable):)" style="margin-left:auto;">
-{% endif %}
+  <img
+    class="media-pic"
+    src="{{newsarticle.article_pic2.url}}"
+    alt="Image Not Avaiable):)"
+  />
+  {% endif %}
 </div>
-<div class="content" data-aos='fade-right'>
+<div class="content" data-aos="fade-right">
   <p>{{newsarticle.para3|safe|linebreaksbr}}</p>
 </div>
 <div class="content" data-aos="fade-left">
@@ -283,33 +379,40 @@
   <p>{{newsarticle.conclusion|safe|linebreaksbr}}</p>
 </div>
 
-
 <!-- Comment Section  -->
 <div class="comment-section" data-aos="fade-down">
   <div class="dropdown-divider" id="divider"></div>
   <h3 align="center">Comments</h3>
-{% if user.is_authenticated %}
-  <a href="{% url 'news_comment' pk=newsarticle.pk%}" class="btn btn-primary"> <span class="fa fa-plus"></span> </a>
- {% else %}
- <a href="{% url 'user_login' %}" class="btn btn-primary"> <span class="fa fa-plus"></span> </a>
-{% endif %}
+  {% if user.is_authenticated %}
+  <a href="{% url 'news_comment' pk=newsarticle.pk%}" class="btn btn-primary">
+    <span class="fa fa-plus"></span>
+  </a>
+  {% else %}
+  <a href="{% url 'user_login' %}" class="btn btn-primary">
+    <span class="fa fa-plus"></span>
+  </a>
+  {% endif %}
   <div class="dropdown-divider" id="divider"></div>
-  <div class="comments" >
+  <div class="comments">
     {% for comment in newsarticle.news_comments.all %}
     <div data-aos="fade-down" data-aos-offset="5">
-    <p>{{comment.text|safe|linebreaksbr}}</p>
-    <p class="small">{{comment.author|safe|linebreaksbr}} on {{comment.create_date}} GMT</p>
+      <p>{{comment.text|safe|linebreaksbr}}</p>
+      <p class="small">
+        {{comment.author|safe|linebreaksbr}} on {{comment.create_date}} GMT
+      </p>
     </div>
     <div class="dropdown-divider" id="divider"></div>
     {% endfor %}
   </div>
 </div>
 {% endif %}
-<div class="" style="min-height:8rem">
-<br><br><br><br>
-</div>
+<div class="" style="min-height: 8rem"><br /><br /><br /><br /></div>
 <div class="img">
-  <img src="{% static 'images/main_logo.jpeg'%}" alt="" style="max-width:150px;max-height:150px;margin-left: 35%;">
+  <img
+    src="{% static 'images/main_logo.jpeg'%}"
+    alt=""
+    style="max-width: 150px; max-height: 150px; margin-left: 35%"
+  />
 </div>
-<br><br><br>
+<br /><br /><br />
 {% endblock %}
