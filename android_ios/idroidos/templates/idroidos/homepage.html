@@ -6,7 +6,7 @@
 {% block css_style%}
 <!--<meta name="viewport" content="width=device-width initial-scale=1"/>-->
 <link rel="stylesheet" href="{% static 'css/homepage.css'%}" />
-<style media="screen">
+<style>
   .top {
     height: 100%;
     background-image: url({%static "images/pixel6.jpg"%});
@@ -16,48 +16,6 @@
     opacity: 0.85;
     scroll-snap-align: start;
     margin-bottom: 2rem;
-  }
-  .btn {
-    opacity: 0.8;
-  }
-  .img {
-    margin-left: 45%;
-  }
-  .login {
-    opacity: 0.8;
-    float: right;
-  }
-  .credits {
-    float: right;
-    font-size: 0.8rem;
-    color: black;
-  }
-  .headline {
-    background-color: white;
-    font-size: 1rem;
-    font-style: oblique;
-    padding: 1rem;
-    padding-left: 2rem;
-    border-radius: 1rem;
-    border: 0.2rem solid black;
-    margin: 0.3rem;
-    display: inline-block;
-  }
-  .post {
-    margin-top: 2rem;
-    padding: 3rem;
-    background-image: linear-gradient(#f6fff6, #e0e2e2);
-    border-radius: 1rem;
-    max-height: 800px;
-    overflow-y: scroll;
-    scroll-snap-align: start;
-  }
-  ::-webkit-scrollbar {
-    width: 5px;
-    color: red;
-  }
-  #divider {
-    border-color: grey;
   }
 </style>
 {% endblock %}
@@ -104,13 +62,10 @@
   {% endfor %}
 </div>
 <div class="dropdown-divider" id="divider"></div>
-<br /><br /><br /><br /><br /><br />
+<br><br><br><br><br>
+
 <div class="img">
-  <img
-    src="{% static 'images/main_logo.jpeg'%}"
-    alt=""
-    style="width: 150px; height: 150px"
-  />
+  <img class="media-pic logo" src="{% static 'images/main_logo.jpeg'%}" alt="">
 </div>
 
 {% endblock %}

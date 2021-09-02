@@ -32,12 +32,13 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/latest/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 
 <style media="screen">
-  body{
-    scroll-snap-type:y mandatory;
+  body {
+    scroll-snap-type: y mandatory;
     overflow-y: scroll;
   }
-  footer{
-    position:fixed;
+
+  footer {
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -47,26 +48,47 @@
     text-align: center;
 
     max-height: 3.2rem;
-}
-.contact{
-  float: right;
-  padding-right: 2rem;
-}
-.author{
-  float:left;
-  padding-left: 2rem;
+  }
 
-}
-.copyright{
-  bottom:0;
-}
-#p{
-  margin-top: 30px;
-}
-.navbar{
-  opacity:1;
+  .contact {
+    float: right;
+    padding-right: 2rem;
+  }
 
-}
+  .author {
+    float: left;
+    padding-left: 2rem;
+
+  }
+
+  .copyright {
+    bottom: 0;
+  }
+
+  #p {
+    margin-top: 30px;
+  }
+
+  .navbar {
+    opacity: 1;
+
+  }
+  .content-div{
+    margin-top: 8rem;
+    width:70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+ 
+  @media only screen and (max-width: 1000px) {
+ .content-div{
+    margin-top: 5rem;
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  }
+  
 </style>
   </head>
 
@@ -144,83 +166,31 @@
         <li class="nav-item">
          <span style="color:#a6dc7d;" class="nav-link"> Welcome: @{{user.username}}</span>
         </li>
-
-
       {% else %}
       <li> <a href="{% url 'register' %}"><span style="color:#a6dc7d;">Register</span> <span style="color:#343a40">.  .</span> </a> </li>
-
       <li> <a href="{% url 'user_login' %}"> <span class="fa fa-user"></span> </a>
       </li>
       {% endif %}
   </ul>
   </div>
-</nav
-<a href="https://dev.to/drishtantr1508">
-  <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Drishtant Rai's DEV Profile" height="30" width="30">
-</a>
-
-{% block bodyblock %}
-
-{% endblock %}
-<a href="https://dev.to/drishtantr1508">
-  <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Drishtant Rai's DEV Profile" height="30" width="30">
-</a>
-<br><br><br><br>
-<div style="margin-left:3%; margin-right:3%;">
-  {% block content %}
-
+</nav>
+<div class="body-div">
+  {% block bodyblock %}
+  
   {% endblock %}
 
 </div>
+
+
+<div class="content-div">
+  {% block content %}
+  
+  {% endblock %}
+
+</div>
+
 <div class="dropdown-divider" id="divider"></div>
-<br>
-<!--<a target="_blank" class="btn btn-warning btn-sm" href="https://www.amazon.in/gp/search?ie=UTF8&tag=idroidostech-21&linkCode=ur2&linkId=5162ea331f4e9906249eb56f516bd31a&camp=3638&creative=24630&index=computers&keywords=Laptop">laptop for programming</a><img src="//ir-in.amazon-adsystem.com/e/ir?t=idroidostech-21&l=ur2&o=31" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /><br>-->
-<!--<a target="_blank" class="btn btn-primary btn-sm" href="https://www.amazon.in/b?_encoding=UTF8&tag=idroidostech-21&linkCode=ur2&linkId=abe280d432e22ed6fc74160af3e70244&camp=3638&creative=24630&node=1388921031">Best Audio Experience.</a><img src="//ir-in.amazon-adsystem.com/e/ir?t=idroidostech-21&l=ur2&o=31" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />-->
-<!--<a target="_blank" class="btn btn-primary btn-sm" href="https://www.amazon.in/b?_encoding=UTF8&tag=idroidostech-21&linkCode=ur2&linkId=86457c950955b6503c9ba120c36603d3&camp=3638&creative=24630&node=1375424031">Best Laptop for ML</a><img src="//ir-in.amazon-adsystem.com/e/ir?t=idroidostech-21&l=ur2&o=31" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />-->
-<!--<br>-->
-<!--<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=IN&source=ac&ref=tf_til&ad_type=product_link&tracking_id=idroidostech-21&marketplace=amazon&region=IN&placement=B08825Z8CW&asins=B08825Z8CW&linkId=3d26e3c03e0e152d9c6b543f4788fcdd&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066C0&bg_color=FFFFFF">-->
-<!--    </iframe><br>-->
-<!--<script type="text/javascript" language="javascript">-->
-<!--      var aax_size='300x250';-->
-<!--      var aax_pubname = 'idroidostech-21';-->
-<!--      var aax_src='302';-->
-<!--    </script>-->
-<!--    <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>-->
-    <!--<script type="text/javascript" language="javascript">-->
-    <!--  var aax_size='728x90';-->
-    <!--  var aax_pubname = 'idroidostech-21';-->
-    <!--  var aax_src='302';-->
-    <!--</script>-->
-    <!--<script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>-->
-    <br><br><br>
-
-<!--<footer>-->
-<!--  <div class="contact">-->
-<!--    <p><a href="https://www.instagram.com/drishtantrai/"><span class="fa fa-instagram"></span></a>-->
-<!--      <span style="color:black;">.  .</span>-->
-<!--       <a href="https://m.facebook.com/profile.php?id=100014417443832"><span class="fa fa-facebook"> </span></a>-->
-<!--       <span style="color:black;">.  .</span>-->
-<!--       <a href="https://twitter.com/DrishtantR"><span class="fa fa-twitter"> </span></a>-->
-<!--       <span style="color:black;">.  .</span>-->
-<!--       <a href="https://in.linkedin.com/in/drishtant-rai-605790190"><span class="fa fa-linkedin"> </span></a>-->
-<!--       <span style="color:black;">.  .</span>-->
-<!--       <a href="https://github.com/drishtantR1508"><span class="fa fa-github"> </span></a>-->
-<!--       <span style="color:black;">.  .</span>-->
-<!--       <a href="#"><span class="fa fa-telegram"> </span></a>-->
-<!--   </p>-->
-<!--  </div>-->
-<!--  <div class="author">-->
-<!--    <p>Author: Drishtant Rai</p>-->
-    <!-- <a href="mailto:drishtant.rai2000@gmail.com" class="">Email Drishtant Rai >>></a></p> -->
-<!--  </div>-->
-<!--<div class="copyright">-->
-<!--  <p id="p">&#169;2020 iDroidOS | All Rights Reserved.</p>-->
-<!--</div>-->
-
-<!--</footer>-->
-
-
-
+<br><br><br><br>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init({
